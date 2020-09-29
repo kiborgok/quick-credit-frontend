@@ -26,7 +26,6 @@
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
   },
-  "proxy": "https://quickcredit-webapp-api.herokuapp.com/",
   "devDependencies": {
     "redux-immutable-state-invariant": "^2.1.0"
   },

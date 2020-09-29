@@ -1,5 +1,7 @@
+const api = `https://quickcredit-webapp-api.herokuapp.com/`
+
 export const applyLoan = ({ amount, tenor, userId, token }) =>
-  fetch(`api/v1/loans/${userId}/apply`, {
+  fetch(`${api}api/v1/loans/${userId}/apply`, {
     method: "POST",
     body: JSON.stringify({ amount, tenor }),
     headers: {
@@ -9,7 +11,7 @@ export const applyLoan = ({ amount, tenor, userId, token }) =>
   }).then((response) => response.json());
 
 export const repayLoan = ({ repaymentAmount, loanId, token }) => {
-  return fetch(`api/v1/loans/${loanId}/repayment`, {
+  return fetch(`${api}api/v1/loans/${loanId}/repayment`, {
     method: "POST",
     body: JSON.stringify({ repaymentAmount }),
     headers: {
@@ -20,7 +22,7 @@ export const repayLoan = ({ repaymentAmount, loanId, token }) => {
 };
 
 export const loadLoans = async ({ token }) =>
-  await fetch("api/v1/loans", {
+  await fetch(`${api}api/v1/loans`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -29,7 +31,7 @@ export const loadLoans = async ({ token }) =>
   }).then((response) => response.json());
 
 export const loadLoan = async ({ userId, token }) =>
-  await fetch(`api/v1/loans/${userId}`, {
+  await fetch(`${api}api/v1/loans/${userId}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -38,7 +40,7 @@ export const loadLoan = async ({ userId, token }) =>
   }).then((response) => response.json());
 
 export const loadRepaymentHistory = async ({ loanId, token }) =>
-  await fetch(`api/v1/loans/${loanId}/repaymentHistory`, {
+  await fetch(`${api}api/v1/loans/${loanId}/repaymentHistory`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -47,7 +49,7 @@ export const loadRepaymentHistory = async ({ loanId, token }) =>
   }).then((response) => response.json());
 
 export const approveOrRejectLoan = ({ loanId, status, token }) =>
-  fetch(`api/v1/loans/${loanId}`, {
+  fetch(`${api}api/v1/loans/${loanId}`, {
     method: "POST",
     body: JSON.stringify({ status }),
     headers: {
