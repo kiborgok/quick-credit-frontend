@@ -1,5 +1,5 @@
 export const loadUsers = ({ token }) =>
-         fetch("https://quickcredit-webapp-api.herokuapp.com/api/v1/auth/users", {
+         fetch("api/v1/auth/users", {
            method: "GET",
            headers: {
              Authorization: `Bearer ${token}`,
@@ -8,7 +8,7 @@ export const loadUsers = ({ token }) =>
          })
 
 export const loadUser = ({ userId, token }) =>
-         fetch(`https://quickcredit-webapp-api.herokuapp.com/api/v1/auth/users/${userId}`, {
+         fetch(`api/v1/auth/users/${userId}`, {
            method: "GET",
              headers: {
             'Authorization': 'Bearer '+token,
@@ -17,7 +17,7 @@ export const loadUser = ({ userId, token }) =>
          })
 
 export const verifyUser = ({ email, token }) => (
-    fetch(`https://quickcredit-webapp-api.herokuapp.com/api/v1/auth/users/${email}/verify`, {
+    fetch(`api/v1/auth/users/${email}/verify`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -27,7 +27,7 @@ export const verifyUser = ({ email, token }) => (
 );
 
 export const signup = (user) => (
-    fetch('https://quickcredit-webapp-api.herokuapp.com/api/v1/auth/signup', {
+    fetch('api/v1/auth/signup', {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
@@ -37,7 +37,7 @@ export const signup = (user) => (
 );
 
 export const signin = user => (
-    fetch('https://quickcredit-webapp-api.herokuapp.com/api/v1/auth/signin', {
+    fetch('api/v1/auth/signin', {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
